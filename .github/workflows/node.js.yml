@@ -16,8 +16,8 @@ jobs:
         node-version: '22'
     - run: npm ci
     - run: npm test
-    - name: Upload coverage
-      uses: coverallsapp/github-action@v0.4.19
+    - name: Coveralls GitHub Action
+      uses: coverallsapp/github-action@v2.3.6
       with:
         github-token: ${{ secrets.GITHUB_TOKEN }}
         path-to-lcov: ./coverage/lcov.info
