@@ -1,7 +1,7 @@
-const chunk = require('../src/chunk');
-const drop = require('../src/drop');
-const slice = require('../src/slice');
-const compact = require('../src/compact');
+import chunk from '../src/chunk.js';
+import drop from '../src/drop.js';
+import slice from '../src/slice.js';
+import compact from '../src/compact.js';
 
 describe('Array functions', () => {
   const arr = [1, 2, 3, 4, 5];
