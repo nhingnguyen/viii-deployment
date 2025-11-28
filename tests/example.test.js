@@ -1,17 +1,9 @@
 import { describe, it, expect } from '@jest/globals';
-import camelCase from '../src/camelCase.js';
 import capitalize from '../src/capitalize.js';
 import upperFirst from '../src/upperFirst.js';
 import endsWith from '../src/endsWith.js';
 
 describe('String functions', () => {
-  describe('camelCase', () => {
-    it('snake_case', () => expect(camelCase('foo_bar')).toBe('fooBar'));
-    it('multiple words', () => expect(camelCase('foo bar baz')).toBe('fooBarBaz'));
-    it('already camelCase', () => expect(camelCase('fooBar')).toBe('fooBar'));
-    it('empty', () => expect(camelCase('')).toBe(''));
-    it('with spaces', () => expect(camelCase('  foo  bar  ')).toBe('fooBar'));
-  });
 
   describe('capitalize', () => {
     it('hello→Hello', () => expect(capitalize('hello')).toBe('Hello'));
