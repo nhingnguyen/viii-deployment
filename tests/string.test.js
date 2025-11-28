@@ -1,7 +1,7 @@
-const camelCase = require('../src/camelCase');
-const capitalize = require('../src/capitalize');
-const upperFirst = require('../src/upperFirst');
-const endsWith = require('../src/endsWith');
+import camelCase from '../src/camelCase.js';
+import capitalize from '../src/capitalize.js';
+import upperFirst from '../src/upperFirst.js';
+import endsWith from '../src/endsWith.js';
 
 describe('String functions', () => {
   describe('camelCase', () => {

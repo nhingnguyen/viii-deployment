@@ -1,7 +1,7 @@
-const add = require('../src/add');
-const divide = require('../src/divide');
-const ceil = require('../src/ceil');
-const clamp = require('../src/clamp');
+import add from '../src/add.js';
+import divide from '../src/divide.js';
+import ceil from '../src/ceil.js';
+import clamp from '../src/clamp.js';
 
 describe('Math functions', () => {
   describe('add', () => {
