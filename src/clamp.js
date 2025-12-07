@@ -19,12 +19,12 @@ function clamp(number, lower, upper) {
   number = +number
   lower = +lower
   upper = +upper
-  lower = lower === lower ? lower : 0
-  upper = upper === upper ? upper : 0
-  if (number === number) {
-    number = number >= upper ? number : upper
-    number = number <= lower ? number : lower
+
+  if (number !== number) { // check for NaN
+    return number
   }
+  if (number < lower) return lower
+  if (number > upper) return upper
   return number
 }
 

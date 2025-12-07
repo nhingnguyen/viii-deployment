@@ -28,10 +28,10 @@ const hasOwnProperty = Object.prototype.hasOwnProperty
  * // => true
  *
  * isEmpty(true)
- * // => true
+ * // => false
  *
  * isEmpty(1)
- * // => true
+ * // => false
  *
  * isEmpty([1, 2, 3])
  * // => false
@@ -43,27 +43,39 @@ const hasOwnProperty = Object.prototype.hasOwnProperty
  * // => false
  */
 function isEmpty(value) {
-  if (value == null) {
-    return true
+  if (value == null) return true;
+
+  // primitives except object
+  if (
+    typeof value === 'boolean' ||
+    typeof value === 'number' ||
+    typeof value === 'bigint' ||
+    typeof value === 'symbol'
+  ) {
+    return false;
   }
-  if (isArrayLike(value) &&
-      (Array.isArray(value) || typeof value === 'string' || typeof value.splice === 'function' ||
-        isBuffer(value) || isTypedArray(value) || isArguments(value))) {
-    return !value.length
+
+  if (
+    isArrayLike(value) &&
+    (Array.isArray(value) ||
+      typeof value === 'string' ||
+      typeof value.splice === 'function' ||
+      isBuffer(value) ||
+      isTypedArray(value) ||
+      isArguments(value))
+  ) {
+    return !value.length;
   }
-  const tag = getTag(value)
-  if (tag == '[object Map]' || tag == '[object Set]') {
-    return !value.size
-  }
-  if (isPrototype(value)) {
-    return !Object.keys(value).length
-  }
+
+  const tag = getTag(value);
+  if (tag === '[object Map]' || tag === '[object Set]') return !value.size;
+  if (isPrototype(value)) return !Object.keys(value).length;
+
   for (const key in value) {
-    if (hasOwnProperty.call(value, key)) {
-      return false
-    }
+    if (hasOwnProperty.call(value, key)) return false;
   }
-  return true
+
+  return true;
 }
 
-export default isEmpty
+export default isEmpty;

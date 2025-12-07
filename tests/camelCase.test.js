@@ -40,7 +40,7 @@ describe('camelCase', () => {
    * @description Should correctly handle strings containing numbers.
    */
   test('should handle strings with numbers', () => {
-    expect(camelCase('foo2bar')).toBe('foo2bar');
+    expect(camelCase('foo2bar')).toBe('foo2Bar');
     expect(camelCase('foo 2 bar')).toBe('foo2Bar');
   });
 

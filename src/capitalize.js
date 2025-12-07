@@ -2,8 +2,7 @@ import upperFirst from './upperFirst.js'
 import toString from './toString.js'
 
 /**
- * Converts the first character of `string` to upper case and the remaining
- * to lower case.
+ * Converts the first character of `string` to upper case.
  *
  * @since 3.0.0
  * @category String
@@ -12,9 +11,11 @@ import toString from './toString.js'
  * @example
  *
  * capitalize('FRED')
- * // => 'Fred'
+ * // => 'FRED'
  */
-const capitalize = (string) => upperFirst(toString(string).toLowerCase())
-
+const capitalize = (string) => {
+  const str = toString(string)
+  return str ? upperFirst(str) : ''
+}
 
 export default capitalize

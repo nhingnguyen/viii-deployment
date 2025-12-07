@@ -5,6 +5,8 @@ import isLength from './isLength.js'
  * not a function and has a `value.length` that's an integer greater than or
  * equal to `0` and less than or equal to `Number.MAX_SAFE_INTEGER`.
  *
+ * Arrays, strings, and `arguments` objects are considered array-like.
+ *
  * @since 4.0.0
  * @category Lang
  * @param {*} value The value to check.
@@ -14,17 +16,22 @@ import isLength from './isLength.js'
  * isArrayLike([1, 2, 3])
  * // => true
  *
- * isArrayLike(document.body.children)
+ * isArrayLike('abc')
  * // => true
  *
- * isArrayLike('abc')
+ * isArrayLike(function(){ return arguments; }())
  * // => true
  *
  * isArrayLike(Function)
  * // => false
  */
 function isArrayLike(value) {
-  return value != null && typeof value !== 'function' && isLength(value.length)
+  return value != null &&
+         typeof value !== 'function' &&
+         isLength(value.length) &&
+         (Array.isArray(value) ||
+          typeof value === 'string' ||
+          (typeof value === 'object' && Object.prototype.toString.call(value) === '[object Arguments]'))
 }
 
 export default isArrayLike

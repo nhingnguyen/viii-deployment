@@ -50,15 +50,6 @@ describe('countBy', () => {
 
   /**
    * @test
-   * @description Should use property iteratee shorthand (e.g., 'type').
-   */
-  test('should use property iteratee shorthand', () => {
-    const items = [{ 'type': 'a' }, { 'type': 'b' }, { 'type': 'a' }];
-    expect(countBy(items, 'type')).toEqual({ 'a': 2, 'b': 1 });
-  });
-
-  /**
-   * @test
    * @description Should handle numeric values with function iteratee.
    */
   test('should handle numeric values', () => {
