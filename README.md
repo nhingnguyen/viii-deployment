@@ -34,3 +34,5 @@ Individuals who remove or modify the license file will also carry the consequenc
 ```npm run test:coverage```
 ### Run in CI
 ```npm run test:ci```
+
+[![Coverage Status](https://coveralls.io/repos/github/nhingnguyen/viii-deployment/badge.svg?branch=main)](https://coveralls.io/github/nhingnguyen/viii-deployment?branch=main)
